@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.8.0 on win32)" generated="2025-04-07T14:24:09.990667" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Delete From Cart" source="C:\Users\ebenelrh\OneDrive - Capgemini\Bureau\rbfw-mini-projet\tests\us4_delete_from_cart\test_delete_from_cart.robot">
+<kw name="Open Browser To Advantage Shopping" owner="keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-07T14:24:10.969793" level="INFO">Opening browser 'Chrome' to base url 'https://advantageonlineshopping.com/#/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-07T14:24:10.968561" elapsed="8.972200"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-04-07T14:24:19.941754" elapsed="0.089301"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.5s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-04-07T14:24:20.032051" elapsed="0.001163"/>
+</kw>
+<status status="PASS" start="2025-04-07T14:24:10.967270" elapsed="9.067080"/>
+</kw>
+<test id="s1-t1" name="Suppression d’un produit du panier" line="8">
+<kw name="Aller dans la catégorie Laptops" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CATEGORY_LAPTOPS}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-07T14:24:20.041373" elapsed="5.153516"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${CATEGORY_LAPTOPS}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-07T14:24:25.195910" elapsed="1.379573"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-07T14:24:26.578537" level="INFO">Clicking element 'xpath=//*[@id="laptopsImg"]'.</msg>
+<arg>${CATEGORY_LAPTOPS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T14:24:26.577542" elapsed="1.251204"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PRODUCT_LINK}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-07T14:24:27.830774" elapsed="4.178824"/>
+</kw>
+<status status="PASS" start="2025-04-07T14:24:20.040315" elapsed="11.969283"/>
+</kw>
+<kw name="Ajouter un produit au panier" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PRODUCT_LINK}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-07T14:24:32.017610" elapsed="1.115622"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-07T14:24:33.137404" level="INFO">Clicking element 'xpath=//*[@id="9"]'.</msg>
+<arg>${PRODUCT_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T14:24:33.135708" elapsed="1.377007"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ADD_TO_CART_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-07T14:24:34.515374" elapsed="2.942830"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-07T14:24:37.463272" level="INFO">Clicking button 'xpath=//*[@id="productProperties"]/div[4]/button'.</msg>
+<arg>${ADD_TO_CART_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T14:24:37.460275" elapsed="2.842190"/>
+</kw>
+<status status="PASS" start="2025-04-07T14:24:32.015588" elapsed="8.288539"/>
+</kw>
+<kw name="Ouvrir le panier" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-07T14:24:40.334364" level="INFO">Clicking element 'xpath=//*[@id="menuCart"]'.</msg>
+<arg>${CART_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T14:24:40.331304" elapsed="1.473881"/>
+</kw>
+<status status="PASS" start="2025-04-07T14:24:40.327301" elapsed="1.478894"/>
+</kw>
+<kw name="Vérifier que le produit est dans le panier" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PRODUCT_IN_CART_TITLE}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-07T14:24:41.813200" elapsed="1.143411"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-04-07T14:24:44.078158" level="INFO">Element 'xpath=//h3[contains(text(), 'CHROMEBOOK')]' contains text 'HP CHROMEBOOK 14'.</msg>
+<arg>${PRODUCT_IN_CART_TITLE}</arg>
+<arg>${PRODUCT_NAME}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-04-07T14:24:42.958504" elapsed="1.119654"/>
+</kw>
+<status status="PASS" start="2025-04-07T14:24:41.809249" elapsed="2.270432"/>
+</kw>
+<kw name="Supprimer produit du panier" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REMOVE_BUTTON}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-07T14:24:44.082980" elapsed="1.096322"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-07T14:24:45.182324" level="INFO">Clicking element 'xpath=//*[@id="shoppingCart"]/table/tbody/tr/td[6]/span/a[3]'.</msg>
+<arg>${REMOVE_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-07T14:24:45.181335" elapsed="1.474076"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${PRODUCT_IN_CART_TITLE}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-04-07T14:24:46.658014" elapsed="0.540134"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-07T14:24:52.208585" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-07T14:24:47.200212" elapsed="5.009375"/>
+</kw>
+<status status="PASS" start="2025-04-07T14:24:44.081257" elapsed="8.128330"/>
+</kw>
+<doc>Ce test ajoute un produit au panier puis le supprime</doc>
+<status status="PASS" start="2025-04-07T14:24:20.035301" elapsed="32.176285"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-07T14:24:52.217151" elapsed="3.031798"/>
+</kw>
+<status status="PASS" start="2025-04-07T14:24:10.001295" elapsed="45.248921"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Delete From Cart" id="s1" pass="1" fail="0" skip="0">Test Delete From Cart</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
